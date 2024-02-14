@@ -1,0 +1,16 @@
+install.packages("scholar")
+library(scholar)
+ 
+id <- 'chCHQmIAAAAJ'
+hemsley <- get_profile(id) 
+hemsley$name
+ 
+hemsley$coauthors
+ 
+View(hemsley)
+# plot showing total citations for things published in the given year
+df <- get_publications(id) #, cstart = 0, pagesize = 100, flush = FALSE)
+ 
+library(igraph)
+View(df)
+plot_coauthors(id)
