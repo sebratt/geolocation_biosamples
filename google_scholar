@@ -14,3 +14,37 @@ df <- get_publications(id) #, cstart = 0, pagesize = 100, flush = FALSE)
 library(igraph)
 View(df)
 plot_coauthors(id)
+
+[12:41 PM] Jeff Hemsley
+install.packages("scholar")
+
+library(scholar)
+ 
+id <- 'chCHQmIAAAAJ'
+
+hemsley <- get_profile(id) 
+
+hemsley$name
+ 
+hemsley$coauthors
+ 
+View(hemsley)
+
+# plot showing total citations for things published in the given year
+
+df <- get_publications(id) #, cstart = 0, pagesize = 100, flush = FALSE)
+ 
+library(igraph)
+
+View(df)
+
+plot_coauthors(id)
+[12:46 PM] Jeff Hemsley
+jian <- get_profile("EAQJ1-YAAAAJ")
+ 
+comp <- compare_scholar_careers(c(id, "EAQJ1-YAAAAJ"))
+ 
+ 
+library(ggplot2)
+
+ggplot(comp) + aes(x = year, y = cites, color = name) + geom_line()
